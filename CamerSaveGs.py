@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import time
 
-def gstreamer_pipeline (capture_width=1280, capture_height=720, display_width=1280, display_height=720, framerate=60, flip_method=0) :   
+def gstreamer_pipeline (capture_width=640, capture_height=360, display_width=1360, display_height=768, framerate=60, flip_method=0) :   
     return ('nvarguscamerasrc ! ' 
     'video/x-raw(memory:NVMM), '
     'width=(int)%d, height=(int)%d, '
@@ -25,12 +25,12 @@ while(True):
     if c & 0xFF == ord('q'):
         break
     if c & 0xFF == ord('s'):
-    	cv2.imwrite('/Users/benzandonati/Desktop/code/opencv/CalibImages/image{0}.png'.format(num), frame)
-    	num += 1
-    	print(num)
-    	time.sleep(1)
+        cv2.imwrite('/Users/benzandonati/Desktop/code/opencv/CalibImages/image{0}.png'.format(num), frame)
+        num += 1
+        print(num)
+        time.sleep(1)
 
-    	 
+         
 
 
 # When everything done, release the capture
